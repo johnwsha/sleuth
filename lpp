@@ -1,0 +1,9 @@
+\* LP *\
+Minimize
+OBJ: - x_0 - 3 x_1
+Subject To
+Inequality_0: 2.5 x_0 + 4 x_1 <= 30
+Inequality_1: - x_1 <= 0
+Inequality_2: - x_0 <= -2
+Inequality_3: - 2 x_0 + x_1 <= 0
+End

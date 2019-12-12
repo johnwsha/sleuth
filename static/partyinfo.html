@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Slueth</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <header role="banner">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand absolute" href="/">SLEUTH CORP.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+
+            </li>
+            <li class="nav-item"><a class="nav-link" href="partyinput">Party Input</a></li>
+            <li class="nav-item"><a class="nav-link" href="partyinfo">Party Info</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+          </ul>
+
+          <ul class="navbar-nav absolute-right">
+            <li><a href="login">Login</a> / <a href="register">Register</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- END header -->
+
+  <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.png);">
+    <div class="container">
+      <div class="row align-items-center justify-content-center site-hero-inner">
+        <div class="col-md-10">
+
+          <div class="mb-5 element-animate">
+            <div class="block-17">
+              <h2 class="heading text-center mb-4">Pick a Group</h2>
+              <form action="partyinputprocess.php" method="GET" class="d-block d-lg-flex mb-4">
+                <div class="fields d-block d-lg-flex">
+                  <div class="heading text-center mb-4"></div>
+                  <!-- <td> We Leaving In {} </p> <p id="demo" ></p></td> -->
+                  <td><p id="demo" style="color: #000000;"> We Leaving In _ </p></td>
+                  <td><p style="color: #000000;"> Be ready at {{ meeting1 }}</p></td>
+                  <div id="map"></div>
+                  <script>
+                    // Set the date we're counting down to
+                    var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                      // Get today's date and time
+                      var now = new Date("Jan 5, 2021 15:27:25").getTime();
+
+                      // Find the distance between now and the count down date
+                      var distance = countDownDate - now;
+
+                      // Time calculations for days, hours, minutes and seconds
+                      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                      // Display the result in the element with id="demo"
+                      document.getElementById("demo").innerHTML = "Leaving in " + hours + "h " +
+                        minutes + "m ";
+
+                      // If the count down is finished, write some text
+                      if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "We left!";
+                      }
+                    }, 1000);
+                  </script>
+                  <script>
+                    function initMap() {
+                      var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 14,
+                        center: {
+                          lat: 37.87158, // TODO replace w/ lat from meeting point
+                          lng: -122.25992 // TODO replace w/ long from meeting point
+                        }
+                      });
+                      var geocoder = new google.maps.Geocoder();
+                      //var marker = new google.maps.Marker({
+                        //map: resultsMap,
+                        //position: results[0].geometry.location // TODO replace w/ lat + long from meeting point (x, y)
+                      geocodeAddress(geocoder, map);
+                    //});
+                  };
+
+
+                     function geocodeAddress(geocoder, resultsMap) {
+                       geocoder.geocode({
+                        'address': 'sutardja dai hall berkeley'
+                       }, function(results, status) {
+                         if (status === 'OK') {
+                           var startloc = results[0].geometry.location;
+                           resultsMap.setCenter(startloc);
+                           var marker = new google.maps.Marker({
+                             map: resultsMap,
+                             position: results[0].geometry.location
+                           });
+                         } else {
+                           alert('Please enter a starting location.');
+                         }
+                       });
+
+                     }
+                  </script>
+                  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkLjTYcdreNM81oYF1ELb1ZQKCKYqBXeg&callback=initMap">
+                  </script>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END section -->
+
+
+  <!-- loader -->
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" /></svg></div>
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.0.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+
+  <script src="js/jquery.magnific-popup.min.js"></script>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

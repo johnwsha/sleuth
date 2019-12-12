@@ -1,0 +1,28 @@
+[
+    {
+        "firstname": "john",
+        "lastname": "sha",
+        "start": "berkeley way west",
+        "end": "UNIT 1",
+        "latitude": 37.867571,
+        "longitude": -122.25522839999996,
+        "endloc": "(37.8675717, -122.25522839999996)",
+        "hour": 1,
+        "minute": 0,
+        "am_pm": "AM",
+        "time": "1:00AM"
+    },
+    {
+        "firstname": "susan",
+        "lastname": "yin",
+        "start": "pat brown cafe",
+        "end": "UNIT 2 ",
+        "latitude": 37.86636,
+        "longitude": -122.25476129999998,
+        "endloc": "(37.8663608, -122.25476129999998)",
+        "hour": 1,
+        "minute": 0,
+        "am_pm": "AM",
+        "time": "1:00AM"
+    }
+]
